@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  MedixFinalProject
 //
-//  Created by Xcode User on 2020-04-12.
+//  Created by Arashdeep
 //  Copyright © 2020 Xcode User. All rights reserved.
 //
 
@@ -13,6 +13,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    var users : [RegisterData] = []
+    var userIndex : Int?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.

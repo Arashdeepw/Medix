@@ -1,20 +1,23 @@
 //
-//  ViewController.swift
+//  HomeViewController.swift
 //  MedixFinalProject
 //
-//  Created by Xcode User on 2020-04-12.
+//  Created by Gabby
 //  Copyright © 2020 Xcode User. All rights reserved.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class HomeViewController: UIViewController {
+    
+    // Segue
+    @IBAction func unwindToLoggedInHomeVC(sender : UIStoryboardSegue){ }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Do any additional setup after loading the view.
     }
-
+    
 
 }
-

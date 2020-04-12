@@ -12,6 +12,14 @@
 		AE8502342442DA6A00663917 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE8502322442DA6A00663917 /* Main.storyboard */; };
 		AE8502362442DA6C00663917 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE8502352442DA6C00663917 /* Assets.xcassets */; };
 		AE8502392442DA6C00663917 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE8502372442DA6C00663917 /* LaunchScreen.storyboard */; };
+		AE8502462442DB7500663917 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8502452442DB7500663917 /* RegisterViewController.swift */; };
+		AE8502482442DB8300663917 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8502472442DB8300663917 /* WebViewController.swift */; };
+		AE85024A2442DB9100663917 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8502492442DB9100663917 /* HomeViewController.swift */; };
+		AE85024C2442DB9F00663917 /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE85024B2442DB9F00663917 /* FormViewController.swift */; };
+		AE85024E2442DBAC00663917 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE85024D2442DBAC00663917 /* TableViewController.swift */; };
+		AE8502502442DBCC00663917 /* SiteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE85024F2442DBCC00663917 /* SiteCell.swift */; };
+		AE8502522442DBEA00663917 /* FormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8502512442DBEA00663917 /* FormData.swift */; };
+		AE8502542442DBFB00663917 /* RegisterData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8502532442DBFB00663917 /* RegisterData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +30,14 @@
 		AE8502352442DA6C00663917 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AE8502382442DA6C00663917 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AE85023A2442DA6C00663917 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AE8502452442DB7500663917 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		AE8502472442DB8300663917 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		AE8502492442DB9100663917 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		AE85024B2442DB9F00663917 /* FormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
+		AE85024D2442DBAC00663917 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		AE85024F2442DBCC00663917 /* SiteCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiteCell.swift; sourceTree = "<group>"; };
+		AE8502512442DBEA00663917 /* FormData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormData.swift; sourceTree = "<group>"; };
+		AE8502532442DBFB00663917 /* RegisterData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +70,62 @@
 		AE85022D2442DA6A00663917 /* MedixFinalProject */ = {
 			isa = PBXGroup;
 			children = (
-				AE85022E2442DA6A00663917 /* AppDelegate.swift */,
-				AE8502302442DA6A00663917 /* ViewController.swift */,
-				AE8502322442DA6A00663917 /* Main.storyboard */,
-				AE8502352442DA6C00663917 /* Assets.xcassets */,
-				AE8502372442DA6C00663917 /* LaunchScreen.storyboard */,
+				AE8502442442DB4700663917 /* View Controllers */,
+				AE8502432442DB3800663917 /* Classes */,
+				AE8502422442DB2000663917 /* Story Boards */,
+				AE8502412442DB1300663917 /* Assets */,
+				AE8502402442DB0200663917 /* DataBase */,
 				AE85023A2442DA6C00663917 /* Info.plist */,
 			);
 			path = MedixFinalProject;
+			sourceTree = "<group>";
+		};
+		AE8502402442DB0200663917 /* DataBase */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DataBase;
+			sourceTree = "<group>";
+		};
+		AE8502412442DB1300663917 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				AE8502352442DA6C00663917 /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		AE8502422442DB2000663917 /* Story Boards */ = {
+			isa = PBXGroup;
+			children = (
+				AE8502322442DA6A00663917 /* Main.storyboard */,
+				AE8502372442DA6C00663917 /* LaunchScreen.storyboard */,
+			);
+			path = "Story Boards";
+			sourceTree = "<group>";
+		};
+		AE8502432442DB3800663917 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				AE85024F2442DBCC00663917 /* SiteCell.swift */,
+				AE85022E2442DA6A00663917 /* AppDelegate.swift */,
+				AE8502512442DBEA00663917 /* FormData.swift */,
+				AE8502532442DBFB00663917 /* RegisterData.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		AE8502442442DB4700663917 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				AE8502302442DA6A00663917 /* ViewController.swift */,
+				AE8502452442DB7500663917 /* RegisterViewController.swift */,
+				AE8502472442DB8300663917 /* WebViewController.swift */,
+				AE8502492442DB9100663917 /* HomeViewController.swift */,
+				AE85024B2442DB9F00663917 /* FormViewController.swift */,
+				AE85024D2442DBAC00663917 /* TableViewController.swift */,
+			);
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,8 +199,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE85024C2442DB9F00663917 /* FormViewController.swift in Sources */,
+				AE85024E2442DBAC00663917 /* TableViewController.swift in Sources */,
+				AE8502522442DBEA00663917 /* FormData.swift in Sources */,
+				AE85024A2442DB9100663917 /* HomeViewController.swift in Sources */,
+				AE8502462442DB7500663917 /* RegisterViewController.swift in Sources */,
 				AE8502312442DA6A00663917 /* ViewController.swift in Sources */,
 				AE85022F2442DA6A00663917 /* AppDelegate.swift in Sources */,
+				AE8502502442DBCC00663917 /* SiteCell.swift in Sources */,
+				AE8502542442DBFB00663917 /* RegisterData.swift in Sources */,
+				AE8502482442DB8300663917 /* WebViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
