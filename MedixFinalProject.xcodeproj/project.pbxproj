@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE4BFAA12442E92700ABCBD9 /* MedixDB.db in Resources */ = {isa = PBXBuildFile; fileRef = AE4BFAA02442E92700ABCBD9 /* MedixDB.db */; };
 		AE85022F2442DA6A00663917 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE85022E2442DA6A00663917 /* AppDelegate.swift */; };
 		AE8502312442DA6A00663917 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8502302442DA6A00663917 /* ViewController.swift */; };
 		AE8502342442DA6A00663917 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE8502322442DA6A00663917 /* Main.storyboard */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AE4BFAA02442E92700ABCBD9 /* MedixDB.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = MedixDB.db; sourceTree = "<group>"; };
 		AE85022B2442DA6A00663917 /* MedixFinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MedixFinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE85022E2442DA6A00663917 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE8502302442DA6A00663917 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 		AE8502402442DB0200663917 /* DataBase */ = {
 			isa = PBXGroup;
 			children = (
+				AE4BFAA02442E92700ABCBD9 /* MedixDB.db */,
 			);
 			path = DataBase;
 			sourceTree = "<group>";
@@ -189,6 +192,7 @@
 				AE8502392442DA6C00663917 /* LaunchScreen.storyboard in Resources */,
 				AE8502362442DA6C00663917 /* Assets.xcassets in Resources */,
 				AE8502342442DA6A00663917 /* Main.storyboard in Resources */,
+				AE4BFAA12442E92700ABCBD9 /* MedixDB.db in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
