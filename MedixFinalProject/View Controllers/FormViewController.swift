@@ -92,12 +92,17 @@ class FormViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
     
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        // format start date
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         let date = formatter.date(from: mainDelegate.meds[row].startdate!)
         
         txtMedName.text = mainDelegate.meds[row].medname
+        slQuantity.value = Float(mainDelegate.meds[row].medquantity!)
         lbQuantity.text = String(mainDelegate.meds[row].medquantity!)
+        slDosage.value = Float(mainDelegate.meds[row].meddosage!)
+        lbDosage.text = String(mainDelegate.meds[row].meddosage!)
+        txtMedDetails.text = mainDelegate.meds[row].meddetails
         datePicker.date = date!
         selectedID = mainDelegate.meds[row].ID!
     }
@@ -134,6 +139,7 @@ class FormViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
             if returnCode == false {
                 returnMsg = "DB insert failed"
             } else {
+                returnMsg = "Medication was added"
                 // reload the picker
                 mainDelegate.readDataFromDatabase()
                 thePicker.reloadAllComponents()
@@ -192,7 +198,7 @@ class FormViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
             }
             
             // create alertbox
-            let alertController = UIAlertController(title: "SQLite Insert", message: returnMsg, preferredStyle: .alert)
+            let alertController = UIAlertController(title: "SQLite Update", message: returnMsg, preferredStyle: .alert)
             
             // create btn
             let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)

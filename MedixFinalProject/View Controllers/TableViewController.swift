@@ -29,10 +29,10 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         tableCell.primaryLabel.text = mainDelegate.meds[rowNum].username
         tableCell.secondaryLabel.text = "Medication: "+mainDelegate.meds[rowNum].medname!
-        if avatar == "Male"{
+        if avatar == "Male" {
             tableCell.myImageView.image = UIImage(named: "male.png")
         }
-        if avatar == "Female"{
+        if avatar == "Female" {
             tableCell.myImageView.image = UIImage(named: "female.png")
         }
         

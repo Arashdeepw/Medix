@@ -242,7 +242,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
-                                    <action selector="slideValueChangedWithSender:" destination="XEl-uH-Ny2" eventType="valueChanged" id="j0I-g9-XZQ"/>
+                                    <action selector="dosageValueChangedWithSender:" destination="XEl-uH-Ny2" eventType="valueChanged" id="3V5-bs-hTM"/>
                                 </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Medication Dosage" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p3x-Om-kQQ">
@@ -295,7 +295,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
-                                    <action selector="slideValueChangedWithSender:" destination="XEl-uH-Ny2" eventType="valueChanged" id="VdC-Pk-hiH"/>
+                                    <action selector="quantityValueChangedWithSender:" destination="XEl-uH-Ny2" eventType="valueChanged" id="nIz-2I-YjD"/>
                                 </connections>
                             </slider>
                             <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="mZt-xu-gd6">
@@ -361,9 +361,12 @@
                     </view>
                     <connections>
                         <outlet property="datePicker" destination="mZt-xu-gd6" id="uOy-Dy-K5j"/>
+                        <outlet property="lbDosage" destination="aeg-if-Ljn" id="7rO-gQ-ymk"/>
                         <outlet property="lbQuantity" destination="6sL-ai-rl3" id="Ybp-wm-pIG"/>
+                        <outlet property="slDosage" destination="aaX-qC-Mm9" id="BiQ-Xs-NlS"/>
                         <outlet property="slQuantity" destination="fp1-qR-DeY" id="82l-pz-3NG"/>
                         <outlet property="thePicker" destination="fzo-VT-Eam" id="mbz-vt-eRW"/>
+                        <outlet property="txtMedDetails" destination="1cS-r6-T4D" id="g6A-GS-jpW"/>
                         <outlet property="txtMedName" destination="Gat-Vo-9au" id="0F8-9H-pas"/>
                     </connections>
                 </viewController>
