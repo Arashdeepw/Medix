@@ -2,7 +2,7 @@
 //  RegisterData.swift
 //  MedixFinalProject
 //
-//  Created by Xcode User on 2020-04-12.
+//  Created by Arashdeep
 //  Copyright © 2020 Xcode User. All rights reserved.
 //
 
