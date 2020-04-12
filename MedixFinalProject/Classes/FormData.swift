@@ -15,12 +15,14 @@ class FormData: NSObject {
     var medname: String?
     var medquantity: Int?
     var startdate: String?
+    var avatar: String?
     
-    func initWithFormData(theRow id: Int, theUsername userName: String, theMedName medName: String, theMedQuantity medQuantity: Int, theStartDate startDate: String) {
+    func initWithFormData(theRow id: Int, theUsername userName: String, theMedName medName: String, theMedQuantity medQuantity: Int, theStartDate startDate: String, theAvatar Avatar: String) {
         ID = id;
         username = userName;
         medname = medName;
         medquantity = medQuantity;
         startdate = startDate;
+        avatar = Avatar;
     }
 }

@@ -22,6 +22,8 @@
 		AE8502502442DBCC00663917 /* SiteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE85024F2442DBCC00663917 /* SiteCell.swift */; };
 		AE8502522442DBEA00663917 /* FormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8502512442DBEA00663917 /* FormData.swift */; };
 		AE8502542442DBFB00663917 /* RegisterData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8502532442DBFB00663917 /* RegisterData.swift */; };
+		AEE186642442EDC200B32005 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AEE186622442EDC200B32005 /* libsqlite3.0.tbd */; };
+		AEE186652442EDC200B32005 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AEE186632442EDC200B32005 /* libsqlite3.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		AE85024F2442DBCC00663917 /* SiteCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiteCell.swift; sourceTree = "<group>"; };
 		AE8502512442DBEA00663917 /* FormData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormData.swift; sourceTree = "<group>"; };
 		AE8502532442DBFB00663917 /* RegisterData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterData.swift; sourceTree = "<group>"; };
+		AEE186622442EDC200B32005 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		AEE186632442EDC200B32005 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +53,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEE186642442EDC200B32005 /* libsqlite3.0.tbd in Frameworks */,
+				AEE186652442EDC200B32005 /* libsqlite3.tbd in Frameworks */,
 				AE4BFAB12442EF8400ABCBD9 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -76,6 +82,7 @@
 			children = (
 				AE85022D2442DA6A00663917 /* MedixFinalProject */,
 				AE85022C2442DA6A00663917 /* Products */,
+				AEE186612442EDC200B32005 /* Frameworks */,
 				AE4BFAAF2442EF8400ABCBD9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -149,6 +156,15 @@
 				AE85024D2442DBAC00663917 /* TableViewController.swift */,
 			);
 			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		AEE186612442EDC200B32005 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AEE186622442EDC200B32005 /* libsqlite3.0.tbd */,
+				AEE186632442EDC200B32005 /* libsqlite3.tbd */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
