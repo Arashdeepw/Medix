@@ -30,10 +30,10 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         tableCell.primaryLabel.text = mainDelegate.meds[rowNum].username
         tableCell.secondaryLabel.text = "Medication: "+mainDelegate.meds[rowNum].medname!
         if avatar == "Male"{
-            tableCell.myImageView.image = UIImage(named: "raptors.jpg")
+            tableCell.myImageView.image = UIImage(named: "male.png")
         }
         if avatar == "Female"{
-            tableCell.myImageView.image = UIImage(named: "leafs.png")
+            tableCell.myImageView.image = UIImage(named: "female.png")
         }
         
         tableCell.accessoryType = .disclosureIndicator
