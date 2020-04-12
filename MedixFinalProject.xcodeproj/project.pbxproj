@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AE4BFAA12442E92700ABCBD9 /* MedixDB.db in Resources */ = {isa = PBXBuildFile; fileRef = AE4BFAA02442E92700ABCBD9 /* MedixDB.db */; };
 		AE4BFAB12442EF8400ABCBD9 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4BFAB02442EF8400ABCBD9 /* WebKit.framework */; };
 		AE4BFAB42442FB7100ABCBD9 /* male.png in Resources */ = {isa = PBXBuildFile; fileRef = AE4BFAB22442FB7100ABCBD9 /* male.png */; };
 		AE4BFAB52442FB7100ABCBD9 /* female.png in Resources */ = {isa = PBXBuildFile; fileRef = AE4BFAB32442FB7100ABCBD9 /* female.png */; };
@@ -24,12 +23,13 @@
 		AE8502502442DBCC00663917 /* SiteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE85024F2442DBCC00663917 /* SiteCell.swift */; };
 		AE8502522442DBEA00663917 /* FormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8502512442DBEA00663917 /* FormData.swift */; };
 		AE8502542442DBFB00663917 /* RegisterData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8502532442DBFB00663917 /* RegisterData.swift */; };
+		AE88D8792443CD7A00B50538 /* fvWallpaper.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AE88D8782443CD7900B50538 /* fvWallpaper.jpg */; };
+		AE88D87B2443D38100B50538 /* FinalProjectDB.db in Resources */ = {isa = PBXBuildFile; fileRef = AE88D87A2443D38100B50538 /* FinalProjectDB.db */; };
 		AEE186642442EDC200B32005 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AEE186622442EDC200B32005 /* libsqlite3.0.tbd */; };
 		AEE186652442EDC200B32005 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AEE186632442EDC200B32005 /* libsqlite3.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		AE4BFAA02442E92700ABCBD9 /* MedixDB.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = MedixDB.db; sourceTree = "<group>"; };
 		AE4BFAB02442EF8400ABCBD9 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		AE4BFAB22442FB7100ABCBD9 /* male.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = male.png; sourceTree = "<group>"; };
 		AE4BFAB32442FB7100ABCBD9 /* female.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = female.png; sourceTree = "<group>"; };
@@ -48,6 +48,8 @@
 		AE85024F2442DBCC00663917 /* SiteCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiteCell.swift; sourceTree = "<group>"; };
 		AE8502512442DBEA00663917 /* FormData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormData.swift; sourceTree = "<group>"; };
 		AE8502532442DBFB00663917 /* RegisterData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterData.swift; sourceTree = "<group>"; };
+		AE88D8782443CD7900B50538 /* fvWallpaper.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fvWallpaper.jpg; sourceTree = "<group>"; };
+		AE88D87A2443D38100B50538 /* FinalProjectDB.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = FinalProjectDB.db; sourceTree = "<group>"; };
 		AEE186622442EDC200B32005 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		AEE186632442EDC200B32005 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -69,6 +71,7 @@
 		AE4BFAA22442EB2500ABCBD9 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				AE88D8782443CD7900B50538 /* fvWallpaper.jpg */,
 				AE4BFAB32442FB7100ABCBD9 /* female.png */,
 				AE4BFAB22442FB7100ABCBD9 /* male.png */,
 			);
@@ -118,7 +121,7 @@
 		AE8502402442DB0200663917 /* DataBase */ = {
 			isa = PBXGroup;
 			children = (
-				AE4BFAA02442E92700ABCBD9 /* MedixDB.db */,
+				AE88D87A2443D38100B50538 /* FinalProjectDB.db */,
 			);
 			path = DataBase;
 			sourceTree = "<group>";
@@ -231,12 +234,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE88D8792443CD7A00B50538 /* fvWallpaper.jpg in Resources */,
 				AE8502392442DA6C00663917 /* LaunchScreen.storyboard in Resources */,
 				AE4BFAB42442FB7100ABCBD9 /* male.png in Resources */,
 				AE8502362442DA6C00663917 /* Assets.xcassets in Resources */,
 				AE8502342442DA6A00663917 /* Main.storyboard in Resources */,
-				AE4BFAA12442E92700ABCBD9 /* MedixDB.db in Resources */,
 				AE4BFAB52442FB7100ABCBD9 /* female.png in Resources */,
+				AE88D87B2443D38100B50538 /* FinalProjectDB.db in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

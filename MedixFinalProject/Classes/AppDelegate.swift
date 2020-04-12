@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var users : [RegisterData] = []
     var userIndex : Int?
     
-    var databaseName : String? = "MedixDB.db"
+    var databaseName : String? = "FinalProjectDB.db"
     var databasePath : String?
     var meds : [FormData] = []
 
@@ -32,170 +32,248 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
-    func readDataFromDatabase(){
+    
+    // Creates the db
+    func checkAndCreateDatabase() {
+        var success = false
+        let fileManager = FileManager.default
+        success = fileManager.fileExists(atPath: databasePath!)
+        
+        if success {
+            return
+        }
+        
+        // ELSE, its the first time run so must figure out where the file is in our
+        // app file and copy/paste into the documents folder.
+        
+        // path of DB
+        let databasePathFromApp = Bundle.main.resourcePath?.appending("/" + databaseName!)
+        
+        // copy/paste into documents folder
+        // try? makes the error go away
+        try? fileManager.copyItem(atPath: databasePathFromApp!, toPath: databasePath!)
+        return
+    }
+    
+    // reads from the medication db
+    func readDataFromDatabase() {
+        // empty the medication array
         meds.removeAll()
+        
+        // c pointer that points to DB object
         var db : OpaquePointer? = nil
-        if sqlite3_open(self.databasePath, &db) == SQLITE_OK{
-            print("Opened connected to database at \(self.databasePath)")
+        
+        // open connection to db
+        if sqlite3_open(self.databasePath, &db) == SQLITE_OK {
+             // success msg
+            print("Opened connected to database at \(String(describing: self.databasePath))")
+            // set up the query statement
             var queryStatement : OpaquePointer? = nil
-            var queryStatementString : String = "select * from entries"
+            // select query string
+            let queryStatementString : String = "select * from medication"
+            // prepare statement
             if sqlite3_prepare_v2(db, queryStatementString, -1, &queryStatement, nil)  == SQLITE_OK {
-                while sqlite3_step(queryStatement) == SQLITE_ROW{
+                // fetch db data
+                while sqlite3_step(queryStatement) == SQLITE_ROW {
+                    // extract rows - retrieved as c-strings for strings
                     let id : Int = Int(sqlite3_column_int(queryStatement, 0))
                     let cname = sqlite3_column_text(queryStatement, 1)
                     let cmedName = sqlite3_column_text(queryStatement, 2)
                     let medQuantity: Int = Int(sqlite3_column_int(queryStatement, 3))
-                    let cdate = sqlite3_column_text(queryStatement, 4)
+                    let cstartdate = sqlite3_column_text(queryStatement, 4)
                     let cavatar = sqlite3_column_text(queryStatement, 5)
-    
+                    let medDosage : Int = Int(sqlite3_column_int(queryStatement, 6))
+                    let cmedDetails = sqlite3_column_text(queryStatement, 7)
+                    
+                    // convert from cstring to regular strings
                     let name = String(cString: cname!)
                     let medName = String(cString: cmedName!)
-                    let date = String(cString: cdate!)
+                    let startDate = String(cString: cstartdate!)
                     let avatar = String(cString: cavatar!)
-    
+                    let medDetails = String(cString: cmedDetails!)
+                    
+                    // embed inside form data object (FormData class)
                     let data = FormData.init()
-                    data.initWithFormData(theRow: id, theUsername: name, theMedName: medName, theMedQuantity: medQuantity, theStartDate: date, theAvatar: avatar)
+                    data.initWithFormData(theRow: id, theUsername: name, theMedName: medName, theMedQuantity: medQuantity, theStartDate: startDate, theAvatar: avatar, theMedDosage: medDosage, theMedDetails: medDetails)
+                    // append to the medication array
                     meds.append(data)
+                    
+                    // verification
+                    print("\(id) | \(name) | \(medName) | \(medQuantity) | \(startDate) | \(avatar) | \(medDosage) | \(medDetails)")
+                    
                 }
+                // free memory that was allocated - cleanup
                 sqlite3_finalize(queryStatement)
             }
             else {
-                    print("Select statement could not be prepared")
+                print("Select statement could not be prepared")
+            }
+            // close connection to db
+            sqlite3_close(db)
+        }
+        else{
+            print("Unable to open DB")
+        }
+    }
+    
+    // insert new row into DB
+    func insertIntoDatabase (med : FormData) -> Bool {
+         // c pointer that points to DB object
+        var db : OpaquePointer? = nil
+        // success msg of insert operation
+        var returnCode : Bool = true
+        
+        // open the connection
+        if sqlite3_open(self.databasePath, &db) == SQLITE_OK {
+            // set up insert statement
+            var insertStatement : OpaquePointer? = nil
+            // insert query string
+            let insertStatementString : String = "Insert into medication values(NULL,?,?,?,?,?, ?, ?)"
+            // prepare statement
+            if sqlite3_prepare_v2(db, insertStatementString, -1, &insertStatement, nil) == SQLITE_OK {
+                // convert from cstring to regular strings
+                let nameStr = med.username! as NSString
+                let medNameStr = med.medname! as NSString
+                let quantity = med.medquantity
+                let startDateStr = med.startdate! as NSString
+                let avatarStr = med.avatar! as NSString
+                let medDosage = med.meddosage
+                let medDetailsStr = med.meddetails! as NSString
+                
+                // bind to query
+                sqlite3_bind_text(insertStatement, 1, nameStr.utf8String, -1, nil)
+                sqlite3_bind_text(insertStatement, 2, medNameStr.utf8String, -1, nil)
+                sqlite3_bind_int(insertStatement, 3, Int32(quantity!))
+                sqlite3_bind_text(insertStatement, 4, startDateStr.utf8String, -1, nil)
+                sqlite3_bind_text(insertStatement, 5, avatarStr.utf8String, -1, nil)
+                sqlite3_bind_int(insertStatement, 6, Int32(medDosage!))
+                sqlite3_bind_text(insertStatement, 7, medDetailsStr.utf8String, -1, nil)
+                
+                // perform DB insertion
+                if sqlite3_step(insertStatement) == SQLITE_DONE {
+                    // retrieve ID of inserted row
+                    let rowID = sqlite3_last_insert_rowid(db)
+                    // verification
+                    print("Succcesully inserted row \(rowID)")
                 }
-                sqlite3_close(db)
+                else{
+                    print("Could not insert row")
+                    returnCode = false
+                }
+                // free memory that was allocated - cleanup
+                sqlite3_finalize(insertStatement)
             }
             else{
-                print("Unable to open DB")
-            }
-        }
-        func insertIntoDatabase(med : FormData)->Bool{
-            var db : OpaquePointer? = nil
-            var returnCode : Bool = true
-            if sqlite3_open(self.databasePath, &db) == SQLITE_OK {
-                var insertStatement : OpaquePointer? = nil
-                var insertStatementString : String = "Insert into entries values(NULL,?,?,?,?,?)"
-                if sqlite3_prepare_v2(db, insertStatementString, -1, &insertStatement, nil) == SQLITE_OK{
-                    let nameStr = med.username! as NSString
-                    let medNameStr = med.medname! as NSString
-                    let quantity = med.medquantity
-                    let startDateStr = med.startdate! as NSString
-                    let avatarStr = med.avatar! as NSString
-  
-                    sqlite3_bind_text(insertStatement, 1, nameStr.utf8String, -1, nil)
-                    sqlite3_bind_text(insertStatement, 2, medNameStr.utf8String, -1, nil)
-                    sqlite3_bind_int(insertStatement, 3, Int32(quantity!))
-                    sqlite3_bind_text(insertStatement, 4, startDateStr.utf8String, -1, nil)
-                    sqlite3_bind_text(insertStatement, 5, avatarStr.utf8String, -1, nil)
-    
-                    if sqlite3_step(insertStatement)==SQLITE_DONE{
-                        let rowID = sqlite3_last_insert_rowid(db)
-                        print("Succcesully inserted row \(rowID)")
-                    }
-                    else{
-                        print("Could not insert row")
-                        returnCode = false
-                    }
-                    sqlite3_finalize(insertStatement)
-                }
-                else{
-                    print("Insert statement could not be prepared")
-                    returnCode = false
-                }
-                sqlite3_close(db)
-            }
-            else {
-                print("Unable to open database")
+                print("Insert statement could not be prepared")
                 returnCode = false
             }
-    
-            return returnCode
+            // close DB connection
+            sqlite3_close(db)
         }
+        else {
+            print("Unable to open database")
+            returnCode = false
+        }
+        
+        return returnCode
+    }
     
-        func updateDataFromDatabase(med: FormData)-> Bool{
-            var db : OpaquePointer? = nil
-            var returnCode : Bool = true
-            if sqlite3_open(self.databasePath, &db) == SQLITE_OK {
-                var updateStatement : OpaquePointer? = nil
-                var updateStatementString : String = "Update entries set MedName = ?, MedQuantity = ?, StartDate = ? where ID = ?"
-                if sqlite3_prepare_v2(db, updateStatementString, -1, &updateStatement, nil) == SQLITE_OK{
-                    let id = med.ID
-                    let medNameStr = med.medname! as NSString
-                    let quantity = med.medquantity
-                    let startDateStr = med.startdate! as NSString
-    
-                    sqlite3_bind_text(updateStatement, 1, medNameStr.utf8String, -1, nil)
-                    sqlite3_bind_int(updateStatement, 2, Int32(quantity!))
-                    sqlite3_bind_text(updateStatement, 3, startDateStr.utf8String, -1, nil)
-                    sqlite3_bind_int(updateStatement, 4, Int32(id!))
-    
-                    if sqlite3_step(updateStatement)==SQLITE_DONE{
-                        print("Succcesully Updated row")
-                    }
-                    else{
-                        print("Could not update row")
-                        returnCode = false
-                    }
-                    sqlite3_finalize(updateStatement)
+    // update row from DB
+    func updateDataFromDatabase (med : FormData) -> Bool {
+        // c pointer that points to DB object
+        var db : OpaquePointer? = nil
+        // success msg of update opertation
+        var returnCode : Bool = true
+        if sqlite3_open(self.databasePath, &db) == SQLITE_OK {
+            // set up update statement
+            var updateStatement : OpaquePointer? = nil
+            // update query string
+            let updateStatementString : String = "Update medication set MedicationName = ?, MedicationQuantity = ?, StartDate = ?, MedicationDosage = ?, MedicationDetails = ? where ID = ?"
+            // prepare statement
+            if sqlite3_prepare_v2(db, updateStatementString, -1, &updateStatement, nil) == SQLITE_OK {
+                // convert from cstring to regular strings
+                let id = med.ID
+                let medNameStr = med.medname! as NSString
+                let quantity = med.medquantity
+                let startDateStr = med.startdate! as NSString
+                let medDosage = med.meddosage
+                let medDetailsStr = med.meddetails! as NSString
+                
+                // bind to query
+                sqlite3_bind_text(updateStatement, 1, medNameStr.utf8String, -1, nil)
+                sqlite3_bind_int(updateStatement, 2, Int32(quantity!))
+                sqlite3_bind_text(updateStatement, 3, startDateStr.utf8String, -1, nil)
+                sqlite3_bind_int(updateStatement, 4, Int32(medDosage!))
+                sqlite3_bind_text(updateStatement, 5, medDetailsStr.utf8String, -1, nil)
+                sqlite3_bind_int(updateStatement, 6, Int32(id!))
+                
+                // perform update
+                if sqlite3_step(updateStatement) == SQLITE_DONE {
+                    // verfication
+                    print("Succcesully Updated row")
                 }
                 else{
-                    print("update statement could not be prepared")
+                    print("Could not update row")
                     returnCode = false
                 }
-                sqlite3_close(db)
+                // free memory that was allocated - cleanup
+                sqlite3_finalize(updateStatement)
             }
-            else {
-                print("Unable to open database")
+            else{
+                print("update statement could not be prepared")
                 returnCode = false
             }
-    
-            return returnCode
+            // close DB connection
+            sqlite3_close(db)
         }
+        else {
+            print("Unable to open database")
+            returnCode = false
+        }
+        
+        return returnCode
+    }
     
-        func deleteDataFromDatabase(medID: Int)-> Bool{
-            var db : OpaquePointer? = nil
-            var returnCode : Bool = true
-            if sqlite3_open(self.databasePath, &db) == SQLITE_OK {
-                var deleteStatement : OpaquePointer? = nil
-                var deleteStatementString : String = "Delete from entries where ID = ?"
-                if sqlite3_prepare_v2(db, deleteStatementString, -1, &deleteStatement, nil) == SQLITE_OK{
-    
-                    sqlite3_bind_int(deleteStatement, 1, Int32(medID))
-    
-                    if sqlite3_step(deleteStatement)==SQLITE_DONE{
-                        print("Succcesully Deleted row")
-                    }
-                    else{
-                        print("Could not delete row")
-                        returnCode = false
-                    }
-                    sqlite3_finalize(deleteStatement)
-                }
-                else{
-                    print("delete statement could not be prepared")
+    // delete row from DB
+    func deleteDataFromDatabase (medID: Int) -> Bool {
+        // c pointer that points to DB object
+        var db : OpaquePointer? = nil
+        // success msg from delete operation
+        var returnCode : Bool = true
+        // open connection to DB
+        if sqlite3_open(self.databasePath, &db) == SQLITE_OK {
+            // set up delete statement
+            var deleteStatement : OpaquePointer? = nil
+            // delete query
+            let deleteStatementString : String = "Delete from medication where ID = ?"
+            // prepare statement
+            if sqlite3_prepare_v2(db, deleteStatementString, -1, &deleteStatement, nil) == SQLITE_OK {
+                // bind to query
+                sqlite3_bind_int(deleteStatement, 1, Int32(medID))
+                // perform deletion
+                if sqlite3_step(deleteStatement) == SQLITE_DONE {
+                    // verification
+                    print("Succcesully Deleted row")
+                } else {
+                    print("Could not delete row")
                     returnCode = false
                 }
-                sqlite3_close(db)
+                // free memory that was allocated - cleanup
+                sqlite3_finalize(deleteStatement)
             }
-            else {
-                print("Unable to open database")
+            else{
+                print("delete statement could not be prepared")
                 returnCode = false
             }
-    
-            return returnCode
+             // close DB connection
+            sqlite3_close(db)
+        } else {
+            print("Unable to open database")
+            returnCode = false
         }
     
-        func checkAndCreateDatabase(){
-            var success = false
-            let fileManager = FileManager.default
-    
-            success = fileManager.fileExists(atPath: databasePath!)
-            if success{
-                return
-            }
-            let databasePathFromApp = Bundle.main.resourcePath?.appending("/"+databaseName!)
-            try? fileManager.copyItem(atPath: databasePathFromApp!, toPath: databasePath!)
-            return
-        }
+        return returnCode
+    }
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
