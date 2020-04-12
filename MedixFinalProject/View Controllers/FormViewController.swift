@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FormViewController: UIViewController, UITextFieldDelegate {
+class FormViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet var slQuantity : UISlider!
     @IBOutlet var lbQuantity : UILabel!
@@ -58,6 +58,7 @@ class FormViewController: UIViewController, UITextFieldDelegate {
         return 1
     }
     
+    
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
@@ -67,7 +68,6 @@ class FormViewController: UIViewController, UITextFieldDelegate {
         lbQuantity.text = String(mainDelegate.meds[row].medquantity!)
         datePicker.date = date!
         selectedID = mainDelegate.meds[row].ID!
-        
     }
     
     
