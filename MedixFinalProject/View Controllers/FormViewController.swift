@@ -124,19 +124,6 @@ class FormViewController: UIViewController, UITextFieldDelegate {
             
             // d. present to screen
             present(alertController, animated: true)
-        } else if avatarImage == nil {
-            // a. create alertbox
-            let alertController = UIAlertController(title: "ERROR", message: "Please select an avatar", preferredStyle: .alert)
-            
-            // b. create btn
-            let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-            
-            // c. add btn to alertbox
-            alertController.addAction(cancelAction)
-            
-            // d. present to screen
-            present(alertController, animated: true)
-            
         } else {
             // 1. create person obj with retrieved txt fields
             var returnMsg = ""
