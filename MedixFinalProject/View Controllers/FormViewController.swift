@@ -12,6 +12,7 @@ class FormViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var slQuantity : UISlider!
     @IBOutlet var lbQuantity : UILabel!
+    @IBOutlet var thePicker : UIPickerView!
     @IBOutlet var datePicker : UIDatePicker!
     @IBOutlet var txtMedName : UITextField!
     
@@ -41,15 +42,6 @@ class FormViewController: UIViewController, UITextFieldDelegate {
         updateLabel()
     }
     
-    @IBAction func updateData() {
-        
-    }
-    
-    @IBAction func insertData() {
-        
-    }
-    
-    
     @IBAction func insertMedication(sender: Any) {
         // validation
         if txtMedName.text == "" {
@@ -64,37 +56,27 @@ class FormViewController: UIViewController, UITextFieldDelegate {
             
             // d. present to screen
             present(alertController, animated: true)
-        } else if avatarImage == nil {
-            // a. create alertbox
-            let alertController = UIAlertController(title: "ERROR", message: "Please select an avatar", preferredStyle: .alert)
-            
-            // b. create btn
-            let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-            
-            // c. add btn to alertbox
-            alertController.addAction(cancelAction)
-            
-            // d. present to screen
-            present(alertController, animated: true)
-            
         } else {
-            // 1. create person obj with retrieved txt fields
+            // create form data obj with retrieved txt fields
+            let avatar = mainDelegate.users[mainDelegate.userIndex!].avatar
+            let userName = mainDelegate.users[mainDelegate.userIndex!].name
+            
             var returnMsg = ""
             let formData = FormData.init()
-            formData.initWithFormData(theRow: selectedID, theUsername: txtMedName.text! , theMedName: txtMedName.text!, theMedQuantity: Int(lbQuantity.text!)!, theStartDate: dateOutput())
+            formData.initWithFormData(theRow: selectedID, theUsername: userName, theMedName: txtMedName.text!, theMedQuantity: Int(lbQuantity.text!)!, theStartDate: dateOutput(), theAvatar: avatar)
             
             
             // insert into DB
-            //let returnCode = mainDelegate.insertIntoDatabase(person: person)
+            let returnCode = mainDelegate.insertIntoDatabase(med: formData)
             
-            //            if returnCode == false {
-            //                returnMsg = "DB insert failed"
-            //            } else {
-            //                returnMsg = "Person was added"
-            //                // reload the picker
-            //           //     mainDelegate.readDataFromDatabase()
-            //           //     thePicker.reloadAllComponents()
-            //            }
+            if returnCode == false {
+                returnMsg = "DB insert failed"
+            } else {
+                // reload the picker
+                mainDelegate.readDataFromDatabase()
+                thePicker.reloadAllComponents()
+            }
+
             
             // create alertbox
             let alertController = UIAlertController(title: "SQLite Insert", message: returnMsg, preferredStyle: .alert)
@@ -125,23 +107,26 @@ class FormViewController: UIViewController, UITextFieldDelegate {
             // d. present to screen
             present(alertController, animated: true)
         } else {
-            // 1. create person obj with retrieved txt fields
+            // create form data obj with retrieved UI fields
+            let avatar = mainDelegate.users[mainDelegate.userIndex!].avatar
+            let userName = mainDelegate.users[mainDelegate.userIndex!].name
+            
             var returnMsg = ""
             let formData = FormData.init()
-            formData.initWithFormData(theRow: selectedID, theUsername: txtMedName.text! , theMedName: txtMedName.text!, theMedQuantity: Int(lbQuantity.text!)!, theStartDate: dateOutput())
+            formData.initWithFormData(theRow: selectedID, theUsername: userName, theMedName: txtMedName.text!, theMedQuantity: Int(lbQuantity.text!)!, theStartDate: dateOutput(), theAvatar: avatar)
             
             
             // update in DB
-            //let returnCode = mainDelegate.insertIntoDatabase(person: person)
+            let returnCode = mainDelegate.insertIntoDatabase(med: formData)
             
-            //            if returnCode == false {
-            //                returnMsg = "DB insert failed"
-            //            } else {
-            //                returnMsg = "Person was added"
-            //                // reload the picker
-            //                //     mainDelegate.readDataFromDatabase()
-            //                //     thePicker.reloadAllComponents()
-            //            }
+            if returnCode == false {
+                returnMsg = "DB update failed"
+            } else {
+                returnMsg = "Data was updated"
+                // reload the picker
+                mainDelegate.readDataFromDatabase()
+                thePicker.reloadAllComponents()
+            }
             
             // create alertbox
             let alertController = UIAlertController(title: "SQLite Insert", message: returnMsg, preferredStyle: .alert)
@@ -161,8 +146,11 @@ class FormViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        // update slider label
         updateLabel()
+        
+        // refresh db
+        mainDelegate.readDataFromDatabase()
         
     }
     

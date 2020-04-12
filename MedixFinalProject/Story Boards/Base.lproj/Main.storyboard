@@ -315,6 +315,7 @@
                         <outlet property="datePicker" destination="mZt-xu-gd6" id="uOy-Dy-K5j"/>
                         <outlet property="lbQuantity" destination="6sL-ai-rl3" id="Ybp-wm-pIG"/>
                         <outlet property="slQuantity" destination="fp1-qR-DeY" id="82l-pz-3NG"/>
+                        <outlet property="thePicker" destination="fzo-VT-Eam" id="mbz-vt-eRW"/>
                         <outlet property="txtMedName" destination="Gat-Vo-9au" id="0F8-9H-pas"/>
                     </connections>
                 </viewController>
