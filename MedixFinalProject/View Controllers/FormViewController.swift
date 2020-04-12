@@ -9,19 +9,32 @@
 import UIKit
 
 class FormViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
-    
+    // picker view of medication name
+    @IBOutlet var thePicker : UIPickerView!
+    // medication name
+    @IBOutlet var txtMedName : UITextField!
+    // medication quantity
     @IBOutlet var slQuantity : UISlider!
     @IBOutlet var lbQuantity : UILabel!
-    @IBOutlet var thePicker : UIPickerView!
+    // medication dosage
+    @IBOutlet var slDosage : UISlider!
+    @IBOutlet var lbDosage : UILabel!
+    // medication details
+    @IBOutlet var txtMedDetails : UITextField!
+    // picker for start date
     @IBOutlet var datePicker : UIDatePicker!
-    @IBOutlet var txtMedName : UITextField!
     
     let mainDelegate = UIApplication.shared.delegate as! AppDelegate
     var selectedID: Int = 0
     
-    // update quantity slider
-    func updateLabel() {
-        //Slide value
+    // hide keyboard
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return textField.resignFirstResponder()
+    }
+    
+    // update quantity /dosage slider
+    func updateQuantityLabel() {
+        //Slider value
         let quantity = slQuantity.value
         // Convert to Int
         let strQuantity = String(format: "%i", Int(quantity))
@@ -29,13 +42,32 @@ class FormViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
         lbQuantity.text = strQuantity
     }
     
-    // datepicker
+    @IBAction func quantityValueChanged(sender: UISlider) {
+        updateQuantityLabel()
+    }
+    
+    // update dosage slider
+    func updateDosageLabel() {
+        //Slider value
+        let dosage = slDosage.value
+        // Convert to Int
+        let strDosage = String(format: "%i", Int(dosage))
+        // Update label
+        lbDosage.text = strDosage
+    }
+    
+    @IBAction func dosageValueChanged(sender: UISlider) {
+        updateDosageLabel()
+    }
+    
+    // datepicker formatter
     func dateOutput() -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         return formatter.string(from: datePicker.date)
     }
     
+    // pickerview functions
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         var pickerLabel: UILabel? = (view as? UILabel)
         if pickerLabel == nil {
@@ -70,16 +102,12 @@ class FormViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
         selectedID = mainDelegate.meds[row].ID!
     }
     
-    
-    @IBAction func slideValueChanged(sender: UISlider) {
-        updateLabel()
-    }
-    
+    // insert new medication into DB
     @IBAction func insertMedication(sender: Any) {
         // validation
-        if txtMedName.text == "" {
+        if txtMedName.text == ""  || txtMedDetails.text == "" {
             // a. create alertbox
-            let alertController = UIAlertController(title: "ERROR", message: "Please enter the name of your medication", preferredStyle: .alert)
+            let alertController = UIAlertController(title: "ERROR", message: "All fields are required", preferredStyle: .alert)
             
             // b. create btn
             let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
@@ -90,13 +118,15 @@ class FormViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
             // d. present to screen
             present(alertController, animated: true)
         } else {
-            // create form data obj with retrieved txt fields
+            // retreieve username and avatar from main delete
             let avatar = mainDelegate.users[mainDelegate.userIndex!].avatar
             let userName = mainDelegate.users[mainDelegate.userIndex!].name
-            
+            // success msg for insertion
             var returnMsg = ""
+            
+            // initialize form data object with UI fields
             let formData = FormData.init()
-            formData.initWithFormData(theRow: selectedID, theUsername: userName, theMedName: txtMedName.text!, theMedQuantity: Int(lbQuantity.text!)!, theStartDate: dateOutput(), theAvatar: avatar)
+            formData.initWithFormData(theRow: selectedID, theUsername: userName, theMedName: txtMedName.text!, theMedQuantity: Int(lbQuantity.text!)!, theStartDate: dateOutput(), theAvatar: avatar, theMedDosage: Int(lbDosage.text!)!, theMedDetails: txtMedDetails.text!)
             
             // insert into DB
             let returnCode = mainDelegate.insertIntoDatabase(med: formData)
@@ -112,48 +142,50 @@ class FormViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
             // create alertbox
             let alertController = UIAlertController(title: "SQLite Insert", message: returnMsg, preferredStyle: .alert)
             
-            // b. create btn
+            // create btn
             let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
             
-            // c. add btn to alertbox
+            // add btn to alertbox
             alertController.addAction(cancelAction)
             
-            // d. present to screen
+            // present to screen
             present(alertController, animated: true)
         }
     }
     
+    // update medication in DB
     @IBAction func updateMedication(sender: Any) {
         // Validation
-        if txtMedName.text == "" {
-            // a. create alertbox
-            let alertController = UIAlertController(title: "ERROR", message: "Please enter the name of your medication", preferredStyle: .alert)
+        if txtMedName.text == "" || txtMedDetails.text == "" {
+            // create alertbox
+            let alertController = UIAlertController(title: "ERROR", message: "All fields are required", preferredStyle: .alert)
             
-            // b. create btn
+            // create btn
             let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
             
-            // c. add btn to alertbox
+            // add btn to alertbox
             alertController.addAction(cancelAction)
             
-            // d. present to screen
+            // present to screen
             present(alertController, animated: true)
         } else {
-            // create form data obj with retrieved UI fields
+            // retrieve username and avatar from main delegate
             let avatar = mainDelegate.users[mainDelegate.userIndex!].avatar
             let userName = mainDelegate.users[mainDelegate.userIndex!].name
-            
+            // success msg for update operation
             var returnMsg = ""
-            let formData = FormData.init()
-            formData.initWithFormData(theRow: selectedID, theUsername: userName, theMedName: txtMedName.text!, theMedQuantity: Int(lbQuantity.text!)!, theStartDate: dateOutput(), theAvatar: avatar)
             
+            // initialize form data object with retrieved UI fields
+            let formData = FormData.init()
+            formData.initWithFormData(theRow: selectedID, theUsername: userName, theMedName: txtMedName.text!, theMedQuantity: Int(lbQuantity.text!)!, theStartDate: dateOutput(), theAvatar: avatar, theMedDosage: Int(lbDosage.text!)!, theMedDetails: txtMedDetails.text!)
             
             // update in DB
-            let returnCode = mainDelegate.insertIntoDatabase(med: formData)
+            let returnCode = mainDelegate.updateDataFromDatabase(med: formData)
             
             if returnCode == false {
                 returnMsg = "DB update failed"
             } else {
-                returnMsg = "Data was updated"
+                returnMsg = "Medication data was updated"
                 // reload the picker
                 mainDelegate.readDataFromDatabase()
                 thePicker.reloadAllComponents()
@@ -162,13 +194,13 @@ class FormViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
             // create alertbox
             let alertController = UIAlertController(title: "SQLite Insert", message: returnMsg, preferredStyle: .alert)
             
-            // b. create btn
+            // create btn
             let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
             
-            // c. add btn to alertbox
+            // add btn to alertbox
             alertController.addAction(cancelAction)
             
-            // d. present to screen
+            // present to screen
             present(alertController, animated: true)
         }
     }
@@ -176,15 +208,13 @@ class FormViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // update slider label
-        updateLabel()
+        // update quantity label
+        updateQuantityLabel()
+        
+        // update dosage label
+        updateDosageLabel()
         
         // refresh db
         mainDelegate.readDataFromDatabase()
-    }
-    
-    // hide keyboard
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        return textField.resignFirstResponder()
     }
 }
