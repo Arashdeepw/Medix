@@ -14,8 +14,6 @@ class FormViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var lbQuantity : UILabel!
     @IBOutlet var datePicker : UIDatePicker!
     @IBOutlet var txtMedName : UITextField!
-    @IBOutlet var firstAvatar: UIButton!
-    @IBOutlet var secondAvatar: UIButton!
     
     let mainDelegate = UIApplication.shared.delegate as! AppDelegate
     var avatarImage: String? = nil

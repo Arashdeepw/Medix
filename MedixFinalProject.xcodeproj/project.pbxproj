@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AE4BFAA12442E92700ABCBD9 /* MedixDB.db in Resources */ = {isa = PBXBuildFile; fileRef = AE4BFAA02442E92700ABCBD9 /* MedixDB.db */; };
+		AE4BFAB12442EF8400ABCBD9 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4BFAB02442EF8400ABCBD9 /* WebKit.framework */; };
 		AE85022F2442DA6A00663917 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE85022E2442DA6A00663917 /* AppDelegate.swift */; };
 		AE8502312442DA6A00663917 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8502302442DA6A00663917 /* ViewController.swift */; };
 		AE8502342442DA6A00663917 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE8502322442DA6A00663917 /* Main.storyboard */; };
@@ -25,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		AE4BFAA02442E92700ABCBD9 /* MedixDB.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = MedixDB.db; sourceTree = "<group>"; };
+		AE4BFAB02442EF8400ABCBD9 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		AE85022B2442DA6A00663917 /* MedixFinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MedixFinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE85022E2442DA6A00663917 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE8502302442DA6A00663917 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,17 +49,34 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE4BFAB12442EF8400ABCBD9 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AE4BFAA22442EB2500ABCBD9 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		AE4BFAAF2442EF8400ABCBD9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AE4BFAB02442EF8400ABCBD9 /* WebKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		AE8502222442DA6A00663917 = {
 			isa = PBXGroup;
 			children = (
 				AE85022D2442DA6A00663917 /* MedixFinalProject */,
 				AE85022C2442DA6A00663917 /* Products */,
+				AE4BFAAF2442EF8400ABCBD9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -72,6 +91,7 @@
 		AE85022D2442DA6A00663917 /* MedixFinalProject */ = {
 			isa = PBXGroup;
 			children = (
+				AE4BFAA22442EB2500ABCBD9 /* Images */,
 				AE8502442442DB4700663917 /* View Controllers */,
 				AE8502432442DB3800663917 /* Classes */,
 				AE8502422442DB2000663917 /* Story Boards */,

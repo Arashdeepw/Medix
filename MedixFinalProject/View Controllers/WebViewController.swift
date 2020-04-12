@@ -7,13 +7,37 @@
 //
 
 import UIKit
+import WebKit
 
-class WebViewController: UIViewController {
+class WebViewController: UIViewController, WKNavigationDelegate {
+    
+    // webkit and activityLoader variables
+    @IBOutlet var wbPage : WKWebView!
+    @IBOutlet var activity : UIActivityIndicatorView!
+    
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        activity.isHidden = false
+        activity.startAnimating()
+    }
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        activity.isHidden = true
+        activity.stopAnimating()
+    }
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        // Load the webview
+        let urlAddress = URL(string: "https://www.webmd.com")
+        // Second - manager object that downloads the web page (url request)
+        let url = URLRequest(url: urlAddress!)
+        // Third - load the web page
+        wbPage.load(url)
+        
+        wbPage.navigationDelegate = self
     }
     
 
