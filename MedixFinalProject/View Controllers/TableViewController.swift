@@ -13,7 +13,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     let mainDelegate = UIApplication.shared.delegate as! AppDelegate
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return mainDelegate.users.count
+        return mainDelegate.meds.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -22,10 +22,13 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let tableCell = tableView.dequeueReusableCell(withIdentifier: "cell") as? SiteCell ?? SiteCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "cell")
-        let avatar = mainDelegate.users[mainDelegate.userIndex!].avatar
+        let rowNum = indexPath.row
+        let avatar = mainDelegate.meds[rowNum].avatar
         
-        tableCell.primaryLabel.text = mainDelegate.users[mainDelegate.userIndex!].name
-        tableCell.secondaryLabel.text = "Age: "+String(mainDelegate.users[mainDelegate.userIndex!].age)
+        //let avatar = mainDelegate.users[mainDelegate.userIndex!].avatar
+        
+        tableCell.primaryLabel.text = mainDelegate.meds[rowNum].username
+        tableCell.secondaryLabel.text = "Medication: "+mainDelegate.meds[rowNum].medname!
         if avatar == "Male"{
             tableCell.myImageView.image = UIImage(named: "raptors.jpg")
         }
@@ -44,19 +47,19 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         let rownum = indexPath.row
         let delete = UITableViewRowAction(style: .normal, title: "Delete") { (action, index) in
             print("Delete button tapped")
-            // let num = self.mainDelegate.people[indexPath.row].id
-            // print(num)
-            // let returnCode = self.mainDelegate.deleteDataFromDatabase(personID: num)
-            // var returnMSG : String = "Person Deleted"
-            // if returnCode == false{
-            //     returnMSG = "Person not Deleted"
-            // }
-            // let alertBox = UIAlertController(title: "Thank you!", message: returnMSG, preferredStyle: .alert)
-            // let okAction = UIAlertAction(title: "OK", style: .default){(alert) in
-            //     self.dismiss(animated: true, completion: nil)
-            // }
-            // alertBox.addAction(okAction)
-            //self.present(alertBox,animated: true)
+             let num = self.mainDelegate.meds[indexPath.row].ID
+             print(num)
+            let returnCode = self.mainDelegate.deleteDataFromDatabase(medID: num!)
+             var returnMSG : String = "Person Deleted"
+             if returnCode == false{
+                 returnMSG = "Person not Deleted"
+             }
+             let alertBox = UIAlertController(title: "Thank you!", message: returnMSG, preferredStyle: .alert)
+             let okAction = UIAlertAction(title: "OK", style: .default){(alert) in
+                 self.dismiss(animated: true, completion: nil)
+             }
+             alertBox.addAction(okAction)
+            self.present(alertBox,animated: true)
             
         }
         delete.backgroundColor = .red
@@ -66,7 +69,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        mainDelegate.readDataFromDatabase()
         // Do any additional setup after loading the view.
     }
     
