@@ -17,7 +17,6 @@ class FormViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var txtMedName : UITextField!
     
     let mainDelegate = UIApplication.shared.delegate as! AppDelegate
-    var avatarImage: String? = nil
     var selectedID: Int = 0
     
     // update quantity slider
@@ -31,10 +30,44 @@ class FormViewController: UIViewController, UITextFieldDelegate {
     }
     
     // datepicker
-    func dateOutput() -> String{
+    func dateOutput() -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         return formatter.string(from: datePicker.date)
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        var pickerLabel: UILabel? = (view as? UILabel)
+        if pickerLabel == nil {
+            pickerLabel = UILabel()
+            pickerLabel?.font = UIFont(name: "Avenir", size: 30)
+            pickerLabel?.textAlignment = .center
+        }
+        pickerLabel?.text = mainDelegate.meds[row].medname
+        pickerLabel?.textColor = UIColor.black
+        
+        return pickerLabel!
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return mainDelegate.meds.count
+    }
+    
+    // returns how many columns
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let date = formatter.date(from: mainDelegate.meds[row].startdate!)
+        
+        txtMedName.text = mainDelegate.meds[row].medname
+        lbQuantity.text = String(mainDelegate.meds[row].medquantity!)
+        datePicker.date = date!
+        selectedID = mainDelegate.meds[row].ID!
+        
     }
     
     
@@ -65,7 +98,6 @@ class FormViewController: UIViewController, UITextFieldDelegate {
             let formData = FormData.init()
             formData.initWithFormData(theRow: selectedID, theUsername: userName, theMedName: txtMedName.text!, theMedQuantity: Int(lbQuantity.text!)!, theStartDate: dateOutput(), theAvatar: avatar)
             
-            
             // insert into DB
             let returnCode = mainDelegate.insertIntoDatabase(med: formData)
             
@@ -77,7 +109,6 @@ class FormViewController: UIViewController, UITextFieldDelegate {
                 thePicker.reloadAllComponents()
             }
 
-            
             // create alertbox
             let alertController = UIAlertController(title: "SQLite Insert", message: returnMsg, preferredStyle: .alert)
             
@@ -141,8 +172,7 @@ class FormViewController: UIViewController, UITextFieldDelegate {
             present(alertController, animated: true)
         }
     }
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -151,7 +181,6 @@ class FormViewController: UIViewController, UITextFieldDelegate {
         
         // refresh db
         mainDelegate.readDataFromDatabase()
-        
     }
     
     // hide keyboard

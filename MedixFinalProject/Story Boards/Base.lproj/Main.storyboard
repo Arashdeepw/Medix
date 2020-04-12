@@ -233,6 +233,10 @@
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fzo-VT-Eam">
                                 <rect key="frame" x="0.0" y="88" width="414" height="189"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="XEl-uH-Ny2" id="c0R-Q8-RWk"/>
+                                    <outlet property="delegate" destination="XEl-uH-Ny2" id="Lem-S5-UeX"/>
+                                </connections>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Medication Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wUJ-j6-ZDQ">
                                 <rect key="frame" x="33" y="372" width="200" height="33"/>
