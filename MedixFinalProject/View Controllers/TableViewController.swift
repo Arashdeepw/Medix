@@ -66,6 +66,14 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         return [delete]
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let rowNum = indexPath.row
+        let alertController = UIAlertController(title: mainDelegate.meds[rowNum].medname, message: "Quantity: "+String(mainDelegate.meds[rowNum].medquantity!)+"\nStart Date: "+mainDelegate.meds[rowNum].startdate!, preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

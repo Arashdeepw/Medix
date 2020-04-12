@@ -2,7 +2,7 @@
 //  SiteCell.swift
 //  MySQLLiteDatabaseApp
 //
-//  Created by Xcode User on 2020-03-27.
+//  Created by Arashdeep
 //  Copyright © 2020 Xcode User. All rights reserved.
 //
 
