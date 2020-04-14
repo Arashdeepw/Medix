@@ -31,6 +31,7 @@
 		AEFA5E5A24454506000F9AC5 /* wallpaper.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AEFA5E5924454506000F9AC5 /* wallpaper.jpg */; };
 		AEFA5E6224454925000F9AC5 /* appTitle.png in Resources */ = {isa = PBXBuildFile; fileRef = AEFA5E6124454925000F9AC5 /* appTitle.png */; };
 		AEFA5E6924454EA7000F9AC5 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEFA5E6824454EA7000F9AC5 /* EventKit.framework */; };
+		AEE186672443084A00B32005 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEE186662443084A00B32005 /* MessageUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		AEFA5E5924454506000F9AC5 /* wallpaper.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wallpaper.jpg; sourceTree = "<group>"; };
 		AEFA5E6124454925000F9AC5 /* appTitle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appTitle.png; sourceTree = "<group>"; };
 		AEFA5E6824454EA7000F9AC5 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		AEE186662443084A00B32005 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AEFA5E6924454EA7000F9AC5 /* EventKit.framework in Frameworks */,
+				AEE186672443084A00B32005 /* MessageUI.framework in Frameworks */,
 				AEE186642442EDC200B32005 /* libsqlite3.0.tbd in Frameworks */,
 				AEE186652442EDC200B32005 /* libsqlite3.tbd in Frameworks */,
 				AE4BFAB12442EF8400ABCBD9 /* WebKit.framework in Frameworks */,
@@ -183,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				AEFA5E6824454EA7000F9AC5 /* EventKit.framework */,
+				AEE186662443084A00B32005 /* MessageUI.framework */,
 				AEE186622442EDC200B32005 /* libsqlite3.0.tbd */,
 				AEE186632442EDC200B32005 /* libsqlite3.tbd */,
 			);
@@ -422,14 +426,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = MedixFinalProject/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = xcode.MedixFinalProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -439,14 +447,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = MedixFinalProject/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = xcode.MedixFinalProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import MessageUI
 
-class TableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
+class TableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MFMessageComposeViewControllerDelegate  {
     
     let mainDelegate = UIApplication.shared.delegate as! AppDelegate
     
@@ -81,6 +82,36 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func sendText(sender: UIButton){
+        
+        guard MFMessageComposeViewController.canSendText() else {return}
+        
+            let controller = MFMessageComposeViewController()
+            controller.body = "Medication Refill Needed"
+            controller.recipients = ["(555)564-8538"]
+            controller.messageComposeDelegate = self
+            self.present(controller, animated: true, completion: nil)
+    }
+    
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        switch (result.rawValue) {
+        case MessageComposeResult.cancelled.rawValue:
+            print("MSG CANCELED")
+            self.dismiss(animated: true, completion: nil)
+        case MessageComposeResult.failed.rawValue:
+            print("MSG FAILED")
+            self.dismiss(animated: true, completion: nil)
+        case MessageComposeResult.sent.rawValue:
+            print("MSG SENT")
+            self.dismiss(animated: true, completion: nil)
+        default:
+            break;
+        }
+        self.dismiss(animated: true, completion: nil)
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = false
+    }
 
 
 }
