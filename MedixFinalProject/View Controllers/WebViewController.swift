@@ -4,7 +4,7 @@
 //
 //  Created by Gabby
 //  Copyright © 2020 Xcode User. All rights reserved.
-//
+//webpage view to take user to webmd for checkups
 
 import UIKit
 import WebKit

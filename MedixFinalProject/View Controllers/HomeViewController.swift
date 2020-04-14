@@ -4,7 +4,7 @@
 //
 //  Created by Gabby
 //  Copyright © 2020 Xcode User. All rights reserved.
-//
+//logged in user home screen, can access other elements of app
 
 import UIKit
 
@@ -22,7 +22,6 @@ class HomeViewController: UIViewController {
         // Do any additional setup after loading the view.
         
     }
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         

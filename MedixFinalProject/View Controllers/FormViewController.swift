@@ -4,7 +4,7 @@
 //
 //  Created by Gabby
 //  Copyright © 2020 Xcode User. All rights reserved.
-//
+//page user adds or updates medication info
 
 import UIKit
 import EventKit

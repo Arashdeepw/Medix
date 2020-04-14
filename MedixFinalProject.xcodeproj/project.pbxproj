@@ -24,14 +24,17 @@
 		AE8502522442DBEA00663917 /* FormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8502512442DBEA00663917 /* FormData.swift */; };
 		AE8502542442DBFB00663917 /* RegisterData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8502532442DBFB00663917 /* RegisterData.swift */; };
 		AE88D87B2443D38100B50538 /* FinalProjectDB.db in Resources */ = {isa = PBXBuildFile; fileRef = AE88D87A2443D38100B50538 /* FinalProjectDB.db */; };
+		AE8BB42F24459BE300275084 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = AE8BB42E24459BE300275084 /* logo.png */; };
+		AE8BB4322445A6B500275084 /* jazz.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AE8BB4312445A6B500275084 /* jazz.mp3 */; };
+		AE8BB4342445A6CE00275084 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE8BB4332445A6CD00275084 /* AVFoundation.framework */; };
 		AEE186642442EDC200B32005 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AEE186622442EDC200B32005 /* libsqlite3.0.tbd */; };
 		AEE186652442EDC200B32005 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AEE186632442EDC200B32005 /* libsqlite3.tbd */; };
+		AEE186672443084A00B32005 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEE186662443084A00B32005 /* MessageUI.framework */; };
 		AEFA5E4A24452167000F9AC5 /* fvWallpaper.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AEFA5E4924452167000F9AC5 /* fvWallpaper.jpg */; };
 		AEFA5E4C24452AE4000F9AC5 /* fvBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AEFA5E4B24452AE4000F9AC5 /* fvBackground.jpg */; };
 		AEFA5E5A24454506000F9AC5 /* wallpaper.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AEFA5E5924454506000F9AC5 /* wallpaper.jpg */; };
 		AEFA5E6224454925000F9AC5 /* appTitle.png in Resources */ = {isa = PBXBuildFile; fileRef = AEFA5E6124454925000F9AC5 /* appTitle.png */; };
 		AEFA5E6924454EA7000F9AC5 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEFA5E6824454EA7000F9AC5 /* EventKit.framework */; };
-		AEE186672443084A00B32005 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEE186662443084A00B32005 /* MessageUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,14 +57,17 @@
 		AE8502512442DBEA00663917 /* FormData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormData.swift; sourceTree = "<group>"; };
 		AE8502532442DBFB00663917 /* RegisterData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterData.swift; sourceTree = "<group>"; };
 		AE88D87A2443D38100B50538 /* FinalProjectDB.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = FinalProjectDB.db; sourceTree = "<group>"; };
+		AE8BB42E24459BE300275084 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		AE8BB4312445A6B500275084 /* jazz.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = jazz.mp3; sourceTree = "<group>"; };
+		AE8BB4332445A6CD00275084 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		AEE186622442EDC200B32005 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		AEE186632442EDC200B32005 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		AEE186662443084A00B32005 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		AEFA5E4924452167000F9AC5 /* fvWallpaper.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fvWallpaper.jpg; sourceTree = "<group>"; };
 		AEFA5E4B24452AE4000F9AC5 /* fvBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fvBackground.jpg; sourceTree = "<group>"; };
 		AEFA5E5924454506000F9AC5 /* wallpaper.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wallpaper.jpg; sourceTree = "<group>"; };
 		AEFA5E6124454925000F9AC5 /* appTitle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appTitle.png; sourceTree = "<group>"; };
 		AEFA5E6824454EA7000F9AC5 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
-		AEE186662443084A00B32005 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE8BB4342445A6CE00275084 /* AVFoundation.framework in Frameworks */,
 				AEFA5E6924454EA7000F9AC5 /* EventKit.framework in Frameworks */,
 				AEE186672443084A00B32005 /* MessageUI.framework in Frameworks */,
 				AEE186642442EDC200B32005 /* libsqlite3.0.tbd in Frameworks */,
@@ -83,6 +90,8 @@
 		AE4BFAA22442EB2500ABCBD9 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				AE8BB42E24459BE300275084 /* logo.png */,
+				AEFA5E5924454506000F9AC5 /* wallpaper.jpg */,
 				AEFA5E6124454925000F9AC5 /* appTitle.png */,
 				AEFA5E4B24452AE4000F9AC5 /* fvBackground.jpg */,
 				AEFA5E4924452167000F9AC5 /* fvWallpaper.jpg */,
@@ -121,7 +130,7 @@
 		AE85022D2442DA6A00663917 /* MedixFinalProject */ = {
 			isa = PBXGroup;
 			children = (
-				AEFA5E5924454506000F9AC5 /* wallpaper.jpg */,
+				AE8BB4302445A69B00275084 /* Sounds */,
 				AE4BFAA22442EB2500ABCBD9 /* Images */,
 				AE8502442442DB4700663917 /* View Controllers */,
 				AE8502432442DB3800663917 /* Classes */,
@@ -182,9 +191,18 @@
 			path = "View Controllers";
 			sourceTree = "<group>";
 		};
+		AE8BB4302445A69B00275084 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				AE8BB4312445A6B500275084 /* jazz.mp3 */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 		AEE186612442EDC200B32005 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AE8BB4332445A6CD00275084 /* AVFoundation.framework */,
 				AEFA5E6824454EA7000F9AC5 /* EventKit.framework */,
 				AEE186662443084A00B32005 /* MessageUI.framework */,
 				AEE186622442EDC200B32005 /* libsqlite3.0.tbd */,
@@ -253,8 +271,10 @@
 			files = (
 				AEFA5E4A24452167000F9AC5 /* fvWallpaper.jpg in Resources */,
 				AE8502392442DA6C00663917 /* LaunchScreen.storyboard in Resources */,
+				AE8BB42F24459BE300275084 /* logo.png in Resources */,
 				AEFA5E6224454925000F9AC5 /* appTitle.png in Resources */,
 				AEFA5E5A24454506000F9AC5 /* wallpaper.jpg in Resources */,
+				AE8BB4322445A6B500275084 /* jazz.mp3 in Resources */,
 				AE4BFAB42442FB7100ABCBD9 /* male.png in Resources */,
 				AEFA5E4C24452AE4000F9AC5 /* fvBackground.jpg in Resources */,
 				AE8502362442DA6C00663917 /* Assets.xcassets in Resources */,
