@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		AE4BFAB12442EF8400ABCBD9 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4BFAB02442EF8400ABCBD9 /* WebKit.framework */; };
-		AE4BFAB42442FB7100ABCBD9 /* male.png in Resources */ = {isa = PBXBuildFile; fileRef = AE4BFAB22442FB7100ABCBD9 /* male.png */; };
-		AE4BFAB52442FB7100ABCBD9 /* female.png in Resources */ = {isa = PBXBuildFile; fileRef = AE4BFAB32442FB7100ABCBD9 /* female.png */; };
 		AE85022F2442DA6A00663917 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE85022E2442DA6A00663917 /* AppDelegate.swift */; };
 		AE8502312442DA6A00663917 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8502302442DA6A00663917 /* ViewController.swift */; };
 		AE8502342442DA6A00663917 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE8502322442DA6A00663917 /* Main.storyboard */; };
@@ -39,8 +37,6 @@
 
 /* Begin PBXFileReference section */
 		AE4BFAB02442EF8400ABCBD9 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
-		AE4BFAB22442FB7100ABCBD9 /* male.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = male.png; sourceTree = "<group>"; };
-		AE4BFAB32442FB7100ABCBD9 /* female.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = female.png; sourceTree = "<group>"; };
 		AE85022B2442DA6A00663917 /* MedixFinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MedixFinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE85022E2442DA6A00663917 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE8502302442DA6A00663917 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -95,8 +91,6 @@
 				AEFA5E6124454925000F9AC5 /* appTitle.png */,
 				AEFA5E4B24452AE4000F9AC5 /* fvBackground.jpg */,
 				AEFA5E4924452167000F9AC5 /* fvWallpaper.jpg */,
-				AE4BFAB32442FB7100ABCBD9 /* female.png */,
-				AE4BFAB22442FB7100ABCBD9 /* male.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -275,11 +269,9 @@
 				AEFA5E6224454925000F9AC5 /* appTitle.png in Resources */,
 				AEFA5E5A24454506000F9AC5 /* wallpaper.jpg in Resources */,
 				AE8BB4322445A6B500275084 /* jazz.mp3 in Resources */,
-				AE4BFAB42442FB7100ABCBD9 /* male.png in Resources */,
 				AEFA5E4C24452AE4000F9AC5 /* fvBackground.jpg in Resources */,
 				AE8502362442DA6C00663917 /* Assets.xcassets in Resources */,
 				AE8502342442DA6A00663917 /* Main.storyboard in Resources */,
-				AE4BFAB52442FB7100ABCBD9 /* female.png in Resources */,
 				AE88D87B2443D38100B50538 /* FinalProjectDB.db in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
