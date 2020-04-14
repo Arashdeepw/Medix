@@ -4,7 +4,7 @@
 //
 //  Created by Arashdeep
 //  Copyright © 2020 Xcode User. All rights reserved.
-//
+//used for custom table
 
 import UIKit
 

@@ -4,7 +4,7 @@
 //
 //  Created by Gabby
 //  Copyright © 2020 Xcode User. All rights reserved.
-//
+//used for medication data
 
 import UIKit
 
@@ -18,7 +18,7 @@ class FormData: NSObject {
     var avatar: String?
     var meddosage: Int?
     var meddetails: String?
-    
+    //add vairables to create a medication object
     func initWithFormData(theRow id: Int, theUsername userName: String, theMedName medName: String, theMedQuantity medQuantity: Int, theStartDate startDate: String, theAvatar Avatar: String, theMedDosage medDosage: Int, theMedDetails medDetails: String) {
         ID = id;
         username = userName;

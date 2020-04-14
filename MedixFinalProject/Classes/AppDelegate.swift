@@ -4,7 +4,7 @@
 //
 //  Created by Arashdeep
 //  Copyright © 2020 Xcode User. All rights reserved.
-//
+//used for user and med data, and database
 
 import UIKit
 import SQLite3
@@ -32,37 +32,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
-    
     // Creates the db
     func checkAndCreateDatabase() {
         var success = false
         let fileManager = FileManager.default
         success = fileManager.fileExists(atPath: databasePath!)
-        
         if success {
             return
         }
-        
-        // ELSE, its the first time run so must figure out where the file is in our
-        // app file and copy/paste into the documents folder.
-        
         // path of DB
         let databasePathFromApp = Bundle.main.resourcePath?.appending("/" + databaseName!)
-        
-        // copy/paste into documents folder
-        // try? makes the error go away
+        // copy/paste into documents folder, try? for errors
         try? fileManager.copyItem(atPath: databasePathFromApp!, toPath: databasePath!)
         return
     }
-    
     // reads from the medication db
     func readDataFromDatabase() {
         // empty the medication array
         meds.removeAll()
-        
         // c pointer that points to DB object
         var db : OpaquePointer? = nil
-        
         // open connection to db
         if sqlite3_open(self.databasePath, &db) == SQLITE_OK {
              // success msg
@@ -122,7 +111,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var db : OpaquePointer? = nil
         // success msg of insert operation
         var returnCode : Bool = true
-        
         // open the connection
         if sqlite3_open(self.databasePath, &db) == SQLITE_OK {
             // set up insert statement
