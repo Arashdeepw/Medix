@@ -23,9 +23,13 @@ class FormViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
     @IBOutlet var txtMedDetails : UITextField!
     // picker for start date
     @IBOutlet var datePicker : UIDatePicker!
+    // btns
+    @IBOutlet var btnInsert : UIButton!
+    @IBOutlet var btnUpdate : UIButton!
     
     let mainDelegate = UIApplication.shared.delegate as! AppDelegate
     var selectedID: Int = 0
+    
     
     // hide keyboard
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -72,11 +76,11 @@ class FormViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
         var pickerLabel: UILabel? = (view as? UILabel)
         if pickerLabel == nil {
             pickerLabel = UILabel()
-            pickerLabel?.font = UIFont(name: "Avenir", size: 30)
+            pickerLabel?.font = UIFont(name: "Arial", size: 30)
             pickerLabel?.textAlignment = .center
         }
         pickerLabel?.text = mainDelegate.meds[row].medname
-        pickerLabel?.textColor = UIColor.black
+        pickerLabel?.textColor = UIColor.white
         
         return pickerLabel!
     }
@@ -213,6 +217,16 @@ class FormViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        // btn styling
+        btnInsert.layer.cornerRadius = 10
+        btnInsert.clipsToBounds = true
+        btnUpdate.layer.cornerRadius = 10
+        btnUpdate.clipsToBounds = true
+        
+        
+        // datepicker alterations
+        datePicker.setValue(UIColor.white, forKey: "textColor")
+        datePicker.setValue(false, forKey: "highlightsToday")
         
         // update quantity label
         updateQuantityLabel()
