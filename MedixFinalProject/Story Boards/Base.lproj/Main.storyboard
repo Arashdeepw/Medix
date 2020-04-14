@@ -376,7 +376,6 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="insertMedicationWithSender:" destination="XEl-uH-Ny2" eventType="touchUpInside" id="wqU-38-odU"/>
                                     <action selector="updateMedicationWithSender:" destination="XEl-uH-Ny2" eventType="touchUpInside" id="PRt-Nh-YTh"/>
                                 </connections>
                             </button>

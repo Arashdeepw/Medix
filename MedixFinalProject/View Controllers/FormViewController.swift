@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EventKit
 
 class FormViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     // picker view of medication name
@@ -28,6 +29,7 @@ class FormViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
     @IBOutlet var btnUpdate : UIButton!
     
     let mainDelegate = UIApplication.shared.delegate as! AppDelegate
+    let eventStore = EKEventStore()
     var selectedID: Int = 0
     
     
@@ -143,21 +145,31 @@ class FormViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
             if returnCode == false {
                 returnMsg = "DB insert failed"
             } else {
-                returnMsg = "Medication was added"
+                returnMsg = "Medication was added to your calendar"
                 // reload the picker
                 mainDelegate.readDataFromDatabase()
                 thePicker.reloadAllComponents()
             }
+            
+            // Fire the calendar event
+            // calculate end date
+            let startDate = datePicker.date
+            var dateComponent = DateComponents()
+            dateComponent.day = Int(lbQuantity.text!)
+            let endDate = Calendar.current.date(byAdding: dateComponent, to: startDate)
+            
+            // fire caldendar event
+            addEventToCalendar(title: txtMedName.text!, description: txtMedDetails.text!, startDate: startDate, endDate: endDate!)
 
             // create alertbox
             let alertController = UIAlertController(title: "SQLite Insert", message: returnMsg, preferredStyle: .alert)
-            
+
             // create btn
             let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-            
+
             // add btn to alertbox
             alertController.addAction(cancelAction)
-            
+
             // present to screen
             present(alertController, animated: true)
         }
@@ -195,12 +207,12 @@ class FormViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
             if returnCode == false {
                 returnMsg = "DB update failed"
             } else {
-                returnMsg = "Medication data was updated"
+                returnMsg = "Medication was updated"
                 // reload the picker
                 mainDelegate.readDataFromDatabase()
                 thePicker.reloadAllComponents()
+                
             }
-            
             // create alertbox
             let alertController = UIAlertController(title: "SQLite Update", message: returnMsg, preferredStyle: .alert)
             
@@ -214,6 +226,30 @@ class FormViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
             present(alertController, animated: true)
         }
     }
+    
+    func addEventToCalendar(title: String, description: String?, startDate: Date, endDate: Date, completion: ((_ success: Bool, _ error: NSError?) -> Void)? = nil) {
+        let eventStore = EKEventStore()
+        
+        eventStore.requestAccess(to: .event, completion: { (granted, error) in
+            if (granted) && (error == nil) {
+                let event = EKEvent(eventStore: eventStore)
+                event.title = title
+                event.startDate = startDate
+                event.endDate = endDate
+                event.notes = description
+                event.calendar = eventStore.defaultCalendarForNewEvents
+                do {
+                    try eventStore.save(event, span: .thisEvent)
+                } catch let e as NSError {
+                    completion?(false, e)
+                    return
+                }
+                completion?(true, nil)
+            } else {
+                completion?(false, error as NSError?)
+            }
+        })
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -222,7 +258,6 @@ class FormViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
         btnInsert.clipsToBounds = true
         btnUpdate.layer.cornerRadius = 10
         btnUpdate.clipsToBounds = true
-        
         
         // datepicker alterations
         datePicker.setValue(UIColor.white, forKey: "textColor")
