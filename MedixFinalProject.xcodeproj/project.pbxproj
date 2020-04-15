@@ -33,8 +33,8 @@
 		AEFA5E5A24454506000F9AC5 /* wallpaper.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AEFA5E5924454506000F9AC5 /* wallpaper.jpg */; };
 		AEFA5E6224454925000F9AC5 /* appTitle.png in Resources */ = {isa = PBXBuildFile; fileRef = AEFA5E6124454925000F9AC5 /* appTitle.png */; };
 		AEFA5E6924454EA7000F9AC5 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEFA5E6824454EA7000F9AC5 /* EventKit.framework */; };
-		AEFA5E6C24461572000F9AC5 /* female.png in Resources */ = {isa = PBXBuildFile; fileRef = AEFA5E6A24461572000F9AC5 /* female.png */; };
-		AEFA5E6D24461572000F9AC5 /* male.png in Resources */ = {isa = PBXBuildFile; fileRef = AEFA5E6B24461572000F9AC5 /* male.png */; };
+		AEFA5E7024469AD3000F9AC5 /* female.png in Resources */ = {isa = PBXBuildFile; fileRef = AEFA5E6E24469AD3000F9AC5 /* female.png */; };
+		AEFA5E7124469AD3000F9AC5 /* male.png in Resources */ = {isa = PBXBuildFile; fileRef = AEFA5E6F24469AD3000F9AC5 /* male.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,8 +66,8 @@
 		AEFA5E5924454506000F9AC5 /* wallpaper.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wallpaper.jpg; sourceTree = "<group>"; };
 		AEFA5E6124454925000F9AC5 /* appTitle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appTitle.png; sourceTree = "<group>"; };
 		AEFA5E6824454EA7000F9AC5 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
-		AEFA5E6A24461572000F9AC5 /* female.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = female.png; path = ../../../../Downloads/female.png; sourceTree = "<group>"; };
-		AEFA5E6B24461572000F9AC5 /* male.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = male.png; path = ../../../../Downloads/male.png; sourceTree = "<group>"; };
+		AEFA5E6E24469AD3000F9AC5 /* female.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = female.png; sourceTree = "<group>"; };
+		AEFA5E6F24469AD3000F9AC5 /* male.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = male.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,8 +90,8 @@
 		AE4BFAA22442EB2500ABCBD9 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				AEFA5E6A24461572000F9AC5 /* female.png */,
-				AEFA5E6B24461572000F9AC5 /* male.png */,
+				AEFA5E6E24469AD3000F9AC5 /* female.png */,
+				AEFA5E6F24469AD3000F9AC5 /* male.png */,
 				AE8BB42E24459BE300275084 /* logo.png */,
 				AEFA5E5924454506000F9AC5 /* wallpaper.jpg */,
 				AEFA5E6124454925000F9AC5 /* appTitle.png */,
@@ -271,12 +271,12 @@
 			files = (
 				AEFA5E4A24452167000F9AC5 /* fvWallpaper.jpg in Resources */,
 				AE8502392442DA6C00663917 /* LaunchScreen.storyboard in Resources */,
-				AEFA5E6D24461572000F9AC5 /* male.png in Resources */,
+				AEFA5E7124469AD3000F9AC5 /* male.png in Resources */,
 				AE8BB42F24459BE300275084 /* logo.png in Resources */,
 				AEFA5E6224454925000F9AC5 /* appTitle.png in Resources */,
 				AEFA5E5A24454506000F9AC5 /* wallpaper.jpg in Resources */,
+				AEFA5E7024469AD3000F9AC5 /* female.png in Resources */,
 				AE8BB4322445A6B500275084 /* jazz.mp3 in Resources */,
-				AEFA5E6C24461572000F9AC5 /* female.png in Resources */,
 				AEFA5E4C24452AE4000F9AC5 /* fvBackground.jpg in Resources */,
 				AE8502362442DA6C00663917 /* Assets.xcassets in Resources */,
 				AE8502342442DA6A00663917 /* Main.storyboard in Resources */,
