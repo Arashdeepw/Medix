@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MedixFinalProject/View Controllers/TableViewController.swift"
-            timestampString = "608545064.400581"
+            timestampString = "608680515.9709131"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "83"
@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MedixFinalProject/View Controllers/TableViewController.swift"
-            timestampString = "608545064.400658"
+            timestampString = "608680515.971048"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "84"
@@ -42,13 +42,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MedixFinalProject/View Controllers/TableViewController.swift"
-            timestampString = "608545064.40072"
+            timestampString = "608680515.971121"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "85"
             endingLineNumber = "85"
-            landmarkName = "TableViewController"
-            landmarkType = "3">
+            landmarkName = "sendText(sender:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -58,12 +58,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MedixFinalProject/View Controllers/TableViewController.swift"
-            timestampString = "608545064.400777"
+            timestampString = "608680515.971174"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "86"
             endingLineNumber = "86"
-            landmarkName = "messageComposeViewController(_:didFinishWith:)"
+            landmarkName = "sendText(sender:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -74,12 +74,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MedixFinalProject/View Controllers/TableViewController.swift"
-            timestampString = "608545064.400833"
+            timestampString = "608680515.971224"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "88"
             endingLineNumber = "88"
-            landmarkName = "messageComposeViewController(_:didFinishWith:)"
+            landmarkName = "sendText(sender:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -90,12 +90,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MedixFinalProject/View Controllers/TableViewController.swift"
-            timestampString = "608545064.40089"
+            timestampString = "608680515.9712729"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "87"
             endingLineNumber = "87"
-            landmarkName = "messageComposeViewController(_:didFinishWith:)"
+            landmarkName = "sendText(sender:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -12,6 +12,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     //variables
     @IBOutlet var tfName : UITextField!
     @IBOutlet var tfPass : UITextField!
+    @IBOutlet var tfNumb : UITextField!
     @IBOutlet var avatarPic: UISegmentedControl!
     @IBOutlet var ageSlider : UISlider!
     @IBOutlet var lbSlider : UILabel!
@@ -31,8 +32,8 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     //Register User on Button Action
     @IBAction func registerData(sender: UIButton){
         //error check to make sure fields are filled
-        if tfName.text!.isEmpty || tfPass.text!.isEmpty{
-            let alertBox = UIAlertController(title: "ERROR!", message: "Fill Name and Password Field", preferredStyle: .alert)
+        if tfName.text!.isEmpty || tfPass.text!.isEmpty || tfNumb.text!.isEmpty{
+            let alertBox = UIAlertController(title: "ERROR!", message: "Fill Name and Password and Doctors # Field", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
             alertBox.addAction(okAction)
             present(alertBox,animated: true)
@@ -40,11 +41,12 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         else{
             let name = tfName.text!
             let pass = tfPass.text!
+            let num = tfNumb.text!
             let avatar = avatarPic.titleForSegment(at: avatarPic.selectedSegmentIndex)
             let age = ageSlider.value
             //add info to user class object
             let user = RegisterData.init()
-            user.initWithData(theName: name, thePass: pass, theAvatar: avatar!, theAge: Int(age))
+            user.initWithData(theName: name, thePass: pass, theAvatar: avatar!, theAge: Int(age), theNum: num)
             mainDelegate.users.append(user)
             //alert showing user was register
             let alertBox = UIAlertController(title: "Thank you!",

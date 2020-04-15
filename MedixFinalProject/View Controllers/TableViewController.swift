@@ -83,7 +83,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         guard MFMessageComposeViewController.canSendText() else {return}
         let controller = MFMessageComposeViewController()
         controller.body = "Medication Refill Needed"
-        controller.recipients = ["(555)564-8538"]
+        controller.recipients = [mainDelegate.users[mainDelegate.userIndex!].number]
         controller.messageComposeDelegate = self
         self.present(controller, animated: true, completion: nil)
     }
