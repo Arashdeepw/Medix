@@ -98,11 +98,11 @@
                                     <segment title="Female"/>
                                 </segments>
                             </segmentedControl>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cowboyb1.png" translatesAutoresizingMaskIntoConstraints="NO" id="cV0-PS-KaV">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cowboyb2.png" translatesAutoresizingMaskIntoConstraints="NO" id="cV0-PS-KaV">
                                 <rect key="frame" x="69" y="604" width="113" height="106"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cowboyb2.png" translatesAutoresizingMaskIntoConstraints="NO" id="v1T-1y-zZt">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cowboyb1.png" translatesAutoresizingMaskIntoConstraints="NO" id="v1T-1y-zZt">
                                 <rect key="frame" x="224" y="604" width="113" height="106"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
